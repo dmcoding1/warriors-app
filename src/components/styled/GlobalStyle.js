@@ -3,7 +3,6 @@ import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
   
   html {
     font-size: 62.5%;

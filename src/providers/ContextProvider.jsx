@@ -5,11 +5,14 @@ import React, {
   useState,
 } from 'react';
 
+import ACTION_TYPES from '../reducers/actionTypes';
+
 import {
   API_URL,
   LIGHT_THEME,
   LOCALSTORAGE_KEY,
 } from '../constants';
+
 import reducer from '../reducers/reducer';
 import useFetchWithLocalStorage from '../hooks/useFetchWithLocalStorage';
 
@@ -28,7 +31,10 @@ const ContextProvider = ({ children }) => {
   const [warriors, dispatch] = useReducer(reducer, []);
 
   useEffect(() => {
-    dispatch({ type: 'ADD_WARRIORS', payload: response });
+    dispatch({
+      type: ACTION_TYPES.ADD_WARRIORS,
+      payload: response,
+    });
   }, [response]);
 
   useEffect(() => {

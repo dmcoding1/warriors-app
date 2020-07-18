@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
 
+import ACTION_TYPES from '../../reducers/actionTypes';
 import Button from '../shared/Button';
+import { DispatchContext } from '../../providers/ContextProvider';
 import { linkStyle } from '../styled/partials';
 import Image from '../shared/Image/Image';
 
@@ -41,14 +43,17 @@ const StyledLink = styled(Link)`
 `;
 
 const WarriorCard = ({
-  warrior: { description, id, name, skill },
+  warrior: { description, id, name, skill, isSelected },
 }) => {
-  const [isSelected, setIsSelected] = useState(false);
+  const dispatch = useContext(DispatchContext);
 
   const buttonText = isSelected ? 'Usuń z' : 'Dodaj do';
 
   const handleClick = () => {
-    setIsSelected(prevIsSelected => !prevIsSelected);
+    dispatch({
+      type: ACTION_TYPES.ADD_WARRIOR_TO_LIST,
+      payload: { id, isSelected: !isSelected },
+    });
   };
 
   const formattedDescription = description
