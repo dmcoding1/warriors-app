@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Loader from '../../components/shared/Loader';
 import WarriorCard from '../../components/WarriorCard';
 
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { FETCH_ERR_MSG } from '../../constants';
 import { StateContext } from '../../providers/ContextProvider';
 
@@ -26,6 +27,8 @@ const Home = () => {
   const { error, isLoading, warriors } = useContext(
     StateContext
   );
+
+  useDocumentTitle('Wojownicy Jedi');
 
   const content = error ? (
     <ErrorPage msg={FETCH_ERR_MSG} />
