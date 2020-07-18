@@ -26,19 +26,19 @@ const StyledArticle = styled.article`
 
   p,
   span {
+    margin-bottom: 0.5rem;
     line-height: 1.2;
   }
 
   span {
     display: block;
-    margin-bottom: 0.5rem;
   }
 `;
 
 const WarriorCard = ({
-  handleClick, warrior: { description, id, name, skill, isSelected },
+  handleClick,
+  warrior: { description, id, name, skill, isSelected },
 }) => {
-
   const buttonText = isSelected ? 'Usuń z' : 'Dodaj do';
 
   const formattedDescription = description

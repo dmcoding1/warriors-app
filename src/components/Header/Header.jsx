@@ -6,7 +6,6 @@ import StyledLink from '../shared/StyledLink';
 const StyledHeader = styled.header`
   width: 100%;
   height: 300px;
-  margin-top: 10vh;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
@@ -17,14 +16,14 @@ const StyledHeader = styled.header`
     props.theme.headerBackground};
 
   h1 {
-    width: 60%;
+    width: 80%;
     font-size: 3rem;
     margin-bottom: 2rem;
     line-height: 0.9;
   }
 
   p {
-    width: 60%;
+    width: 80%;
     margin-bottom: 2rem;
     font-size: 1.5rem;
     line-height: 1.5;
