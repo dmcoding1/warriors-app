@@ -5,7 +5,7 @@ export const API_URL =
 export const MILISECONDS_IN_A_DAY = 24 * 60 * 60 * 1000;
 export const FETCH_ERR_MSG =
   'Coś poszło nie tak. Sprawdź czy jesteś online i spróbuj ponownie.';
-export const URL_ERR_MSG = 'Nieprawidłowy adres';
+export const URL_ERR_MSG = 'Na zły adres natrafiłeś. Dobrą drogę znaleźć musisz.';
 
 export const LIGHT_THEME = {
   mainBackgroundColor: '#eee',

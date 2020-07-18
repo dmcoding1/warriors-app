@@ -5,6 +5,7 @@ export const buttonStyle = css`
   display: block;
   margin-top: 0.5rem;
   padding: 1rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   border: none;
   border-radius: 0.5rem;
@@ -15,10 +16,10 @@ export const buttonStyle = css`
   &:before {
     content: '';
     position: absolute;
-    left: -50px;
-    top: -50%;
-    width: 20px;
-    height: 200%;
+    left: -10rem;
+    top: -100%;
+    width: 5rem;
+    height: 300%;
     background-color: ${props => props.theme.accent};
     transform: rotate(-45deg);
     opacity: 0.6;
@@ -26,7 +27,7 @@ export const buttonStyle = css`
   }
 
   &:hover:before {
-    transform: translateX(300px) rotate(-45deg);
+    transform: translateX(40rem) rotate(-45deg);
   }
 `;
 

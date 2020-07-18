@@ -20,7 +20,7 @@ const Container = styled.main`
 
 const Layout = ({ children }) => {
   const { theme } = useContext(StateContext);
-  const history = useHistory();
+  const history = useHistory();  
 
   const handleClick = () => {
     history.goBack();
@@ -30,7 +30,6 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Container>
-          <div>Hello from Layout</div>
           <Nav />
           <Button text="Wróć" onClick={handleClick} />
           {children}

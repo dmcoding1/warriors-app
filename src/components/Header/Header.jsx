@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { linkStyle } from '../styled/partials';
+import StyledLink from '../shared/StyledLink';
 
 const StyledHeader = styled.header`
   width: 100%;
@@ -30,10 +29,6 @@ const StyledHeader = styled.header`
     font-size: 1.5rem;
     line-height: 1.5;
   }
-`;
-
-const StyledLink = styled(Link)`
-  ${linkStyle};
 `;
 
 const Header = () => {

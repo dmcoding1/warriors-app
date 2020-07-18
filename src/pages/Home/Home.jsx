@@ -6,9 +6,10 @@ import Header from '../../components/Header';
 import Loader from '../../components/shared/Loader';
 import WarriorCard from '../../components/WarriorCard';
 
+import ACTION_TYPES from '../../reducers/actionTypes';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 import { FETCH_ERR_MSG } from '../../constants';
-import { StateContext } from '../../providers/ContextProvider';
+import { DispatchContext, StateContext } from '../../providers/ContextProvider';
 
 const StyledSection = styled.section`
   display: grid;
@@ -28,7 +29,16 @@ const Home = () => {
     StateContext
   );
 
+  const dispatch = useContext(DispatchContext);
+
   useDocumentTitle('Wojownicy Jedi');
+
+  const handleClick = (id, isSelected) => {
+    dispatch({
+      type: ACTION_TYPES.ADD_WARRIOR_TO_LIST,
+      payload: { id, isSelected: !isSelected },
+    });
+  }
 
   const content = error ? (
     <ErrorPage msg={FETCH_ERR_MSG} />
@@ -40,7 +50,10 @@ const Home = () => {
           Dostępni Wojownicy
         </StyledSubHeader>
         {warriors.map(warrior => (
-          <WarriorCard key={warrior.id} warrior={warrior} />
+          <WarriorCard 
+            key={warrior.id} 
+            handleClick={() => handleClick(warrior.id, warrior.isSelected)} 
+            warrior={warrior} />
         ))}
       </StyledSection>
     </>

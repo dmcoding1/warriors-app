@@ -1,13 +1,10 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 import { v4 as uuid } from 'uuid';
 
-import ACTION_TYPES from '../../reducers/actionTypes';
 import Button from '../shared/Button';
-import { DispatchContext } from '../../providers/ContextProvider';
-import { linkStyle } from '../styled/partials';
 import Image from '../shared/Image/Image';
+import StyledLink from '../shared/StyledLink';
 
 const StyledArticle = styled.article`
   max-width: 20rem;
@@ -21,7 +18,7 @@ const StyledArticle = styled.article`
     props.theme.secondaryBackgroundColor};
   border-radius: 2rem;
 
-  h3 {
+  header {
     margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: 700;
@@ -38,23 +35,11 @@ const StyledArticle = styled.article`
   }
 `;
 
-const StyledLink = styled(Link)`
-  ${linkStyle};
-`;
-
 const WarriorCard = ({
-  warrior: { description, id, name, skill, isSelected },
+  handleClick, warrior: { description, id, name, skill, isSelected },
 }) => {
-  const dispatch = useContext(DispatchContext);
 
   const buttonText = isSelected ? 'Usuń z' : 'Dodaj do';
-
-  const handleClick = () => {
-    dispatch({
-      type: ACTION_TYPES.ADD_WARRIOR_TO_LIST,
-      payload: { id, isSelected: !isSelected },
-    });
-  };
 
   const formattedDescription = description
     .split(';')
@@ -63,7 +48,7 @@ const WarriorCard = ({
   return (
     <StyledArticle>
       <Image alt={name} size={200} />
-      <h3>{name}</h3>
+      <header>{name}</header>
       <p>Umiejętność: {skill}</p>
       <p>{formattedDescription}</p>
       <StyledLink to={`/warriors/${id}`}>
