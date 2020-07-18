@@ -1,7 +1,9 @@
 import React from 'react';
 
-const ErrorPage = () => {
-  return <div>Hello from ErrorPage</div>;
+import { URL_ERR_MSG } from '../../constants';
+
+const ErrorPage = ({ msg }) => {
+  return <div>{msg ? msg : URL_ERR_MSG}</div>;
 };
 
 export default ErrorPage;

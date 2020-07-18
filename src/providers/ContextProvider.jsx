@@ -2,14 +2,19 @@ import React, {
   createContext,
   useEffect,
   useReducer,
+  useState,
 } from 'react';
 
-import { API_URL, LOCALSTORAGE_KEY } from '../constants';
+import {
+  API_URL,
+  LIGHT_THEME,
+  LOCALSTORAGE_KEY,
+} from '../constants';
 import reducer from '../reducers/reducer';
 import useFetchWithLocalStorage from '../hooks/useFetchWithLocalStorage';
 
-const StateContext = createContext();
-const DispatchContext = createContext();
+export const StateContext = createContext();
+export const DispatchContext = createContext();
 
 const ContextProvider = ({ children }) => {
   const {
@@ -17,6 +22,8 @@ const ContextProvider = ({ children }) => {
     isLoading,
     response,
   } = useFetchWithLocalStorage(API_URL);
+
+  const [theme, setTheme] = useState(LIGHT_THEME);
 
   const [warriors, dispatch] = useReducer(reducer, []);
 
@@ -36,7 +43,13 @@ const ContextProvider = ({ children }) => {
   return (
     <DispatchContext.Provider value={dispatch}>
       <StateContext.Provider
-        value={(error, isLoading, warriors)}
+        value={{
+          error,
+          isLoading,
+          setTheme,
+          theme,
+          warriors,
+        }}
       >
         {children}
       </StateContext.Provider>
