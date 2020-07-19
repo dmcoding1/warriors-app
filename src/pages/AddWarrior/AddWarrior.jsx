@@ -1,10 +1,11 @@
 import React from 'react';
 
+import Form from '../../components/Form';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const AddWarrior = () => {
   useDocumentTitle('Dodaj wojownika');
-  return <div>Hello from AddWarrior</div>;
+  return <Form />;
 };
 
 export default AddWarrior;

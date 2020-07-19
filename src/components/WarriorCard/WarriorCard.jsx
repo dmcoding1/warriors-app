@@ -14,6 +14,8 @@ const StyledArticle = styled.article`
   justify-content: space-between;
   padding: 2rem;
   font-size: 1.2rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   background-color: ${props =>
     props.theme.secondaryBackgroundColor};
   border-radius: 2rem;

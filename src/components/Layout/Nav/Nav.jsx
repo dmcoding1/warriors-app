@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import ToggleButton from '../../ToggleButton';
+import ToggleButton from '../ToggleButton';
 
 const StyledNav = styled.nav`
   position: fixed;

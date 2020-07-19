@@ -4,12 +4,28 @@ import { buttonStyle } from '../../styled/partials';
 
 const StyledButton = styled.button`
   ${buttonStyle};
-  background-color: ${props => props.theme.primary};
+  background-color: ${props =>
+    props.primary
+      ? props.theme.primary
+      : props.theme.secondary};
 `;
 
-const Button = ({ text, onClick }) => {
+const Button = ({
+  children,
+  onClick,
+  primary,
+  text,
+  type,
+}) => {
   return (
-    <StyledButton onClick={onClick}>{text}</StyledButton>
+    <StyledButton
+      primary={primary}
+      onClick={onClick}
+      type={type}
+    >
+      {text}
+      {children}
+    </StyledButton>
   );
 };
 

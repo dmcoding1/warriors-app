@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-import { DARK_THEME, LIGHT_THEME } from '../../constants';
-import { StateContext } from '../../providers/ContextProvider';
+import {
+  DARK_THEME,
+  LIGHT_THEME,
+} from '../../../constants';
+import { StateContext } from '../../../providers/ContextProvider';
 
 const StyledButton = styled.button`
   width: 4rem;
