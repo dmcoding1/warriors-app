@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 
 import Nav from './Nav';
-import Footer from './Footer';
 
 import GlobalStyle from '../styled/GlobalStyle';
 import { StateContext } from '../../providers/ContextProvider';
@@ -53,7 +52,6 @@ const Layout = ({ children }) => {
             Wróć
           </StyledButton>
           {children}
-          <Footer />
         </Container>
       </ThemeProvider>
     </>
