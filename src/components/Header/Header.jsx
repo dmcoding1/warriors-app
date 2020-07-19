@@ -7,6 +7,7 @@ const StyledHeader = styled.header`
   width: 100%;
   height: 300px;
   margin-bottom: 1rem;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

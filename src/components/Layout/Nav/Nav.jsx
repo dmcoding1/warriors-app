@@ -7,20 +7,23 @@ import ToggleButton from '../../ToggleButton';
 const StyledNav = styled.nav`
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   height: 5rem;
-  width: 100vw;
-  max-width: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
   background-color: ${props =>
     props.theme.mainBackgroundColor};
   color: ${props => props.theme.textColor};
   z-index: 10;
 
   ul {
+    width: 100%;
+    max-width: 70rem;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
   }
 
   li {
@@ -52,8 +55,8 @@ const NavLink = styled(Link)`
     left: 0;
     width: 100%;
     height: 0;
-    box-shadow: 0 0 0.75rem 0.25rem #fff,
-      0 0 1rem 0.5rem #f0f, 0 0 1.25rem 0.75rem #0ff;
+    box-shadow: 0 0 0.5rem 0.12rem #fff,
+      0 0 0.6rem 0.25rem #f0f, 0 0 0.75rem 0.5rem #0ff;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.2s ease-in-out;

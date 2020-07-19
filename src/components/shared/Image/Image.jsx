@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledImage = styled.img`
   width: ${props => props.width || '100%'};
-  height: ${props => props.height || '15rem'};
+  height: ${props => props.height || '100%'};
   margin-bottom: 1rem;
   object-fit: cover;
   background-color: #333;

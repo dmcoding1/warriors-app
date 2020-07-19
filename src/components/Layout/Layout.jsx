@@ -10,7 +10,7 @@ import { StateContext } from '../../providers/ContextProvider';
 
 const Container = styled.main`
   min-height: 100%;
-  padding-top: 5rem;
+  padding: 5rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,15 +21,14 @@ const Container = styled.main`
 
 const StyledButton = styled.button`
   position: fixed;
-  top: 7rem;
-  left: 0;
+  bottom: 1rem;
+  left: 1rem;
   display: block;
   padding: 0.8rem;
   font-size: 1rem;
   text-transform: uppercase;
   border: none;
-  background-color: ${props =>
-    props.theme.mainBackgroundColor};
+  background-color: ${props => props.theme.secondary};
   color: ${props => props.theme.textColor};
   overflow: hidden;
   cursor: pointer;

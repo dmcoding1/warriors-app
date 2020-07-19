@@ -8,9 +8,11 @@ const StyledButton = styled.button`
   width: 4rem;
   height: 4rem;
   margin-right: 1rem;
+  border: none;
   border-radius: 50%;
   justify-self: center;
   background: ${props => props.theme.textColor};
+  cursor: pointer;
 `;
 
 const ToggleButton = () => {
