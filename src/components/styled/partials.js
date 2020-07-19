@@ -2,8 +2,10 @@ import { css } from 'styled-components';
 
 export const buttonStyle = css`
   position: relative;
-  display: block;
-  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
   padding: 1rem;
   font-size: 1.2rem;
   text-transform: uppercase;

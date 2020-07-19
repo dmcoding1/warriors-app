@@ -4,32 +4,44 @@ import styled from 'styled-components';
 import WarriorCard from '../../components/WarriorCard';
 
 import ACTION_TYPES from '../../reducers/actionTypes';
-import {DispatchContext, StateContext} from '../../providers/ContextProvider';
+import {
+  DispatchContext,
+  StateContext,
+} from '../../providers/ContextProvider';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const StyledSection = styled.section`
+  min-height: calc(100vh - 10rem);
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 2rem;
   padding: 1rem;
 
-  h3 {
+  @media (min-width: 578px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  p {
     font-size: 1.5rem;
   }
 `;
 
-const StyledHeader = styled.h2`
+const StyledHeader = styled.header`
+  margin: 2rem 0;
   text-align: center;
-  text-transform: uppercase;
   font-size: 2rem;
 `;
 
 const WarriorsList = () => {
-  const { warriors } = useContext(StateContext); 
-  
+  const { warriors } = useContext(StateContext);
+
   const dispatch = useContext(DispatchContext);
 
-  const handleClick = (id) => {
+  const handleClick = id => {
     dispatch({
       type: ACTION_TYPES.ADD_WARRIOR_TO_LIST,
       payload: { id, isSelected: false },
@@ -39,20 +51,26 @@ const WarriorsList = () => {
   useDocumentTitle('Moi wojownicy');
 
   const selectedWarriors = warriors.map(warrior => {
-    return warrior.isSelected && (<WarriorCard
-      handleClick={() => handleClick(warrior.id)}
-      key={warrior.id}
-      warrior={warrior}
-    />)   
-  })
+    return (
+      warrior.isSelected && (
+        <WarriorCard
+          handleClick={() => handleClick(warrior.id)}
+          key={warrior.id}
+          warrior={warrior}
+        />
+      )
+    );
+  });
 
   return (
     <>
+      <StyledHeader>Moja armia</StyledHeader>
       <StyledSection>
-        <StyledHeader>Moja armia</StyledHeader>
-        {selectedWarriors.every(warrior => !warrior) 
-          ? <h3>Nie wybrano żadnych wojowników.</h3> 
-          : selectedWarriors}
+        {selectedWarriors.every(warrior => !warrior) ? (
+          <p>Nie wybrano żadnych wojowników.</p>
+        ) : (
+          selectedWarriors
+        )}
       </StyledSection>
     </>
   );

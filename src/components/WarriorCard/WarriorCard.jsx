@@ -8,7 +8,7 @@ import StyledLink from '../shared/StyledLink';
 
 const StyledArticle = styled.article`
   max-width: 20rem;
-  min-height: 40rem;
+  min-height: 42rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -41,7 +41,9 @@ const WarriorCard = ({
   handleClick,
   warrior: { description, id, name, skill, isSelected },
 }) => {
-  const buttonText = isSelected ? 'Usuń z' : 'Dodaj do';
+  const buttonText = isSelected
+    ? 'Usuń z mojej listy'
+    : 'Dodaj do mojej listy';
 
   const formattedDescription = description
     .split(';')
@@ -56,10 +58,9 @@ const WarriorCard = ({
       <StyledLink to={`/warriors/${id}`}>
         Wyświetl szczegóły
       </StyledLink>
-      <Button
-        onClick={handleClick}
-        text={`${buttonText} mojej listy`}
-      />
+      <Button onClick={handleClick} primary>
+        {buttonText}
+      </Button>
     </StyledArticle>
   );
 };

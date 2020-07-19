@@ -108,6 +108,7 @@ const Form = () => {
             name="name"
             id="name"
             onChange={handleChange}
+            pattern="([^\s][A-z0-9À-ž\s]+)"
             required
             value={formState.name || ''}
           />
@@ -118,6 +119,7 @@ const Form = () => {
             id="skill"
             name="skill"
             onChange={handleChange}
+            pattern="([^\s][A-z0-9À-ž\s]+)"
             required
             type="text"
             value={formState.skill || ''}
@@ -129,6 +131,7 @@ const Form = () => {
             id="description"
             name="description"
             onChange={handleChange}
+            pattern="([^\s][A-z0-9À-ž\s]+)"
             required
             type="text"
             value={formState.description || ''}

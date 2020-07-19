@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { StateContext } from '../../../providers/ContextProvider';
 import ToggleButton from '../ToggleButton';
 
 const StyledNav = styled.nav`
@@ -22,7 +27,7 @@ const StyledNav = styled.nav`
     max-width: 70rem;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 
@@ -30,6 +35,17 @@ const StyledNav = styled.nav`
     height: 100%;
     display: flex;
     align-items: center;
+
+    span {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 0.5rem;
+      border: 1px solid grey;
+      border-radius: 50%;
+    }
   }
 `;
 
@@ -68,6 +84,19 @@ const NavLink = styled(Link)`
 `;
 
 const Nav = () => {
+  const [armyCount, setArmyCount] = useState(0);
+  const { warriors } = useContext(StateContext);
+
+  useEffect(() => {
+    const count = warriors.reduce((total, warrior) => {
+      return warrior.isSelected
+        ? (total = total + 1)
+        : total;
+    }, 0);
+
+    setArmyCount(count);
+  }, [warriors, setArmyCount]);
+
   return (
     <StyledNav>
       <ul>
@@ -81,6 +110,7 @@ const Nav = () => {
         </li>
         <li>
           <NavLink to="/my-warriors">Moja Lista</NavLink>
+          <span>{armyCount}</span>
         </li>
         <li>
           <ToggleButton>Toggle</ToggleButton>

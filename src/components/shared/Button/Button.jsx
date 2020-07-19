@@ -10,20 +10,13 @@ const StyledButton = styled.button`
       : props.theme.secondary};
 `;
 
-const Button = ({
-  children,
-  onClick,
-  primary,
-  text,
-  type,
-}) => {
+const Button = ({ children, onClick, primary, type }) => {
   return (
     <StyledButton
       primary={primary}
       onClick={onClick}
       type={type}
     >
-      {text}
       {children}
     </StyledButton>
   );

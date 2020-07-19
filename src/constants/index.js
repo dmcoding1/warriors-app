@@ -10,22 +10,22 @@ export const URL_ERR_MSG =
 
 export const LIGHT_THEME = {
   id: 'LIGHT',
-  mainBackgroundColor: '#eee',
-  secondaryBackgroundColor: '#ccc',
-  textColor: '#000',
-  primary: 'red',
-  secondary: 'yellow',
-  accent: 'green',
-  headerBackground: 'orange',
+  mainBackgroundColor: '#F1FFE7',
+  secondaryBackgroundColor: '#FFFFFF',
+  textColor: '#0F0E0E',
+  primary: '#00A7E1',
+  secondary: '#44CF6C',
+  accent: '#44CF6C',
+  headerBackground: '#E8E9EB',
 };
 
 export const DARK_THEME = {
   id: 'DARK',
-  mainBackgroundColor: '#222',
-  secondaryBackgroundColor: '#555',
-  textColor: '#fff',
-  primary: 'brown',
-  secondary: 'red',
-  accent: 'green',
-  headerBackground: 'blue',
+  mainBackgroundColor: '#090C08',
+  secondaryBackgroundColor: '#000000',
+  textColor: '#F2F7F2',
+  primary: '#2C0E37',
+  secondary: '#134611',
+  accent: '#FF6700',
+  headerBackground: '#191923',
 };
