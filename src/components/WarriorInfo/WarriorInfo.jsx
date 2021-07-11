@@ -17,8 +17,7 @@ const Container = styled.section`
   word-wrap: break-word;
 
   header,
-  p,
-  button {
+  p {
     margin-bottom: 1.5rem;
   }
 
@@ -67,34 +66,28 @@ const WarriorInfo = ({
   };
 
   return (
-    <>
-      <Container>
-        <Image alt={name} size={300} />
-        <header>{name}</header>
-        <p>Umiejętność: {skill}</p>
-        <p>{description}</p>
-        <Button
-          onClick={() => setIsModalOpen(true)}
-          primary
-        >
-          Rezerwa
+    <Container>
+      <Image alt={name} size={300} height='30rem' />
+      <header>{name}</header>
+      <p>Umiejętność: {skill}</p>
+      <p>{description}</p>
+      <Button onClick={() => setIsModalOpen(true)} primary>
+        Rezerwa
+      </Button>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        style={modalStyle}
+      >
+        <p>
+          Czy na pewno chcesz odesłać wojownika do rezerwy?
+        </p>
+        <Button onClick={handleConfirm}>Tak</Button>
+        <Button onClick={() => setIsModalOpen(false)}>
+          Anuluj
         </Button>
-        <Modal
-          isOpen={isModalOpen}
-          onRequestClose={() => setIsModalOpen(false)}
-          style={modalStyle}
-        >
-          <p>
-            Czy na pewno chcesz odesłać wojownika do
-            rezerwy?
-          </p>
-          <Button onClick={handleConfirm}>Tak</Button>
-          <Button onClick={() => setIsModalOpen(false)}>
-            Anuluj
-          </Button>
-        </Modal>
-      </Container>
-    </>
+      </Modal>
+    </Container>
   );
 };
 

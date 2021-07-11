@@ -42,12 +42,16 @@ const Container = styled.form`
     padding: 1rem;
     border: none;
     font-size: 2rem;
+    color: ${props =>
+      props.theme.textColor};
     background-color: ${props =>
       props.theme.secondaryBackgroundColor};
+    border: 1px solid ${props =>
+      props.theme.textColor};
   }
 
   button {
-    font-size: 2rem;
+    font-size: 1.6rem;
     width: 10rem;
   }
 

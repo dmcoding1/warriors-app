@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
@@ -12,6 +12,13 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #root {
+    width: 100%;
   }
 `;
 

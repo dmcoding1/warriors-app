@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
+import {ReactComponent as MoonIcon} from '../../../icons/moon.svg';
+import {ReactComponent as SunIcon} from '../../../icons/sun.svg';
+
 import {
   DARK_THEME,
   LIGHT_THEME,
@@ -11,11 +14,22 @@ const StyledButton = styled.button`
   width: 4rem;
   height: 4rem;
   margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
   border: none;
   border-radius: 50%;
-  justify-self: center;
   background: ${props => props.theme.textColor};
   cursor: pointer;
+`;
+
+const StyledMoonIcon = styled(MoonIcon)`
+  fill: #fff;
+`;
+
+const StyledSunIcon = styled(SunIcon)`
+  fill: #000;
 `;
 
 const ToggleButton = () => {
@@ -26,7 +40,11 @@ const ToggleButton = () => {
       : setTheme(LIGHT_THEME);
   };
   return (
-    <StyledButton onClick={handleClick}></StyledButton>
+    <StyledButton onClick={handleClick}>
+      {theme.id === 'LIGHT'
+        ? <StyledMoonIcon />
+        : <StyledSunIcon />}
+    </StyledButton>
   );
 };
 

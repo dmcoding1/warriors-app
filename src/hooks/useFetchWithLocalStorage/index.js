@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 import {
   LOCALSTORAGE_KEY,
   MILISECONDS_IN_A_DAY,
   TIMESTAMP_KEY,
-} from '../../constants';
+} from "../../constants";
 
 const useFetchWithLocalStorage = (url, options = {}) => {
   const [response, setResponse] = useState(null);
@@ -12,19 +12,14 @@ const useFetchWithLocalStorage = (url, options = {}) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const localStorageData = window.localStorage.getItem(
-      LOCALSTORAGE_KEY
-    );
+    const localStorageData = window.localStorage.getItem(LOCALSTORAGE_KEY);
 
-    const localStorageTimestamp = window.localStorage.getItem(
-      TIMESTAMP_KEY
-    );
+    const localStorageTimestamp = window.localStorage.getItem(TIMESTAMP_KEY);
 
     const currentTime = new Date().getTime();
 
     const isDataOld =
-      currentTime - localStorageTimestamp >
-      3 * MILISECONDS_IN_A_DAY;
+      currentTime - localStorageTimestamp > 3 * MILISECONDS_IN_A_DAY;
 
     const fetchData = async () => {
       setIsLoading(true);

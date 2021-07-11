@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { v4 as uuid } from 'uuid';
 
+import { getRandomInt } from '../../helpers';
 import Button from '../shared/Button';
 import Image from '../shared/Image/Image';
 import StyledLink from '../shared/StyledLink';
 
 const StyledArticle = styled.article`
-  max-width: 20rem;
+  max-width: 25rem;
   min-height: 42rem;
   display: flex;
   flex-direction: column;
@@ -37,6 +37,11 @@ const StyledArticle = styled.article`
   }
 `;
 
+const StyledButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const WarriorCard = ({
   handleClick,
   warrior: { description, id, name, skill, isSelected },
@@ -47,20 +52,24 @@ const WarriorCard = ({
 
   const formattedDescription = description
     .split(';')
-    .map(part => <span key={uuid()}>{part.trim()}</span>);
+    .map((part, index) => <span key={index}>{part.trim()}</span>);
+
+  const imageSize = getRandomInt(100, 200);
 
   return (
     <StyledArticle>
-      <Image alt={name} size={200} />
+      <Image alt={name} height='20rem' size={imageSize} />
       <header>{name}</header>
       <p>Umiejętność: {skill}</p>
       <p>{formattedDescription}</p>
-      <StyledLink to={`/warriors/${id}`}>
-        Wyświetl szczegóły
-      </StyledLink>
-      <Button onClick={handleClick} primary>
-        {buttonText}
-      </Button>
+      <StyledButtonContainer>
+        <StyledLink to={`/warriors/${id}`}>
+          Wyświetl szczegóły
+        </StyledLink>
+        <Button onClick={handleClick} primary>
+          {buttonText}
+        </Button>
+      </StyledButtonContainer>
     </StyledArticle>
   );
 };

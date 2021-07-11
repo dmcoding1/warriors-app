@@ -11,7 +11,6 @@ import {
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const StyledSection = styled.section`
-  min-height: calc(100vh - 10rem);
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 2rem;
@@ -22,6 +21,10 @@ const StyledSection = styled.section`
   }
 
   @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1023px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -31,7 +34,7 @@ const StyledSection = styled.section`
 `;
 
 const StyledHeader = styled.header`
-  margin: 2rem 0;
+  margin: 5rem 0;
   text-align: center;
   font-size: 2rem;
 `;
@@ -64,7 +67,7 @@ const WarriorsList = () => {
 
   return (
     <>
-      <StyledHeader>Moja armia</StyledHeader>
+      <StyledHeader>MOJA ARMIA</StyledHeader>
       <StyledSection>
         {selectedWarriors.every(warrior => !warrior) ? (
           <p>Nie wybrano żadnych wojowników.</p>
