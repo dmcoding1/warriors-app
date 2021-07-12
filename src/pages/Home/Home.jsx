@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
 import ErrorPage from '../ErrorPage';
@@ -40,12 +40,30 @@ const StyledSubHeader = styled.h2`
   font-size: 2rem;
 `;
 
+const StyledInput = styled.input`
+  display: block;
+  margin: 2rem 0 5rem;
+  padding: 1rem;
+  font-size: 1.8rem;
+  background: ${props => props.theme.secondaryBackgroundColor};
+  color: ${props => props.theme.textColor};
+  border: 1px solid ${props => props.theme.textColor};
+`;
+
+const StyledLabel = styled.label`
+  margin-top: 3rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+`;
+
 const Home = () => {
   const { error, isLoading, warriors } = useContext(
     StateContext
   );
 
   const dispatch = useContext(DispatchContext);
+
+  const [searchQuery, setSearchQuery] = useState('');
 
   useDocumentTitle('Wojownicy Jedi');
 
@@ -56,14 +74,20 @@ const Home = () => {
     });
   };
 
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value.toLowerCase());
+  }
+
   const content = error ? (
     <ErrorPage msg={FETCH_ERR_MSG} />
   ) : (
     <>
       <Header />
       <StyledSubHeader>Dostępni Wojownicy</StyledSubHeader>
+      <StyledLabel for="search">Szukaj wojownika:</StyledLabel>
+      <StyledInput type="search" onChange={handleChange} id="search"/>
       <StyledSection>
-        {warriors.map(warrior => (
+        {warriors.filter(warrior => warrior?.name.toLowerCase().includes(searchQuery)).map(warrior => (
           <WarriorCard
             key={warrior.id}
             handleClick={() =>
