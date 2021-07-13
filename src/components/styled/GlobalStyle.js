@@ -3,6 +3,10 @@ import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
   
   html {
     font-size: 62.5%;
@@ -12,9 +16,6 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   #root {

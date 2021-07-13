@@ -84,7 +84,7 @@ const Home = () => {
     <>
       <Header />
       <StyledSubHeader>Dostępni Wojownicy</StyledSubHeader>
-      <StyledLabel for="search">Szukaj wojownika:</StyledLabel>
+      <StyledLabel htmlFor="search">Szukaj wojownika:</StyledLabel>
       <StyledInput type="search" onChange={handleChange} id="search"/>
       <StyledSection>
         {warriors.filter(warrior => warrior?.name.toLowerCase().includes(searchQuery)).map(warrior => (

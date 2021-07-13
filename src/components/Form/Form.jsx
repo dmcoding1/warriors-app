@@ -62,7 +62,7 @@ const Container = styled.form`
 `;
 
 const StyledForm = styled.div`
-  min-height: calc(100vh - 10rem);
+  min-height: calc(100vh - 14rem);
   width: 100%;
   max-width: 500px;
   display: flex;

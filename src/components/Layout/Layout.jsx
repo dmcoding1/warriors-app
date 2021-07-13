@@ -7,7 +7,7 @@ import GlobalStyle from '../styled/GlobalStyle';
 import { StateContext } from '../../providers/ContextProvider';
 
 const Container = styled.main`
-  min-height: calc(100vh - 10rem);
+  min-height: 100vh;
   width: 100%;
   padding: 7rem 0;
   display: flex;
